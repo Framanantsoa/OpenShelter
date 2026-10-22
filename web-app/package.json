@@ -1,0 +1,33 @@
+{
+  "name": "OpenShelter",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "db:push": "drizzle-kit push",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "daisyui": "^5.7.50",
+    "drizzle-orm": "^0.45.4",
+    "nuxt": "^4.4.8",
+    "postgres": "^3.4.9",
+    "tailwindcss": "^4.3.3",
+    "vue": "^3.5.44",
+    "vue-router": "^5.4.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@nuxt/test-utils": "^4.3.4",
+    "drizzle-kit": "^0.31.11",
+    "vitest": "^5.0.5"
+  }
+}
