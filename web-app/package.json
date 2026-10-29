@@ -18,6 +18,8 @@
     "test": "dotenv run -f .env.test -- vitest run"
   },
   "dependencies": {
+    "@nuxt/icon": "^2.6.1",
+    "@nuxt/image": "^2.2.0",
     "@tailwindcss/vite": "^4.3.3",
     "bcrypt": "^6.0.0",
     "daisyui": "^5.7.50",
@@ -31,6 +33,7 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@iconify-json/heroicons": "^1.2.3",
     "@nuxt/test-utils": "^4.3.4",
     "@types/bcrypt": "^6.0.0",
     "@types/node": "^26.6.5",
