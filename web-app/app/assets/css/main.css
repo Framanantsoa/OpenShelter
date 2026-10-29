@@ -1,2 +1,12 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "openshelter";
+  default: true;
+  color-scheme: light;
+  --color-primary: oklch(58.8% 0.158 242);        /* sky-600 */
+  --color-primary-content: oklch(100% 0 0);
+  --color-neutral: oklch(20.8% 0.042 265.8);      /* slate-900 */
+  --color-neutral-content: oklch(98% 0 0);
+  --color-error: oklch(57.7% 0.245 27.3);         /* red-600 */
+}
