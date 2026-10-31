@@ -1,5 +1,6 @@
 import { drizzle } from 'drizzle-orm/postgres-js'
 import postgres from 'postgres'
+import * as schema from './schema'
 
 let connectionString: string
 
@@ -18,4 +19,4 @@ if (!connectionString) {
 export const client = postgres(connectionString)
 
 // Export the Drizzle instance for your server routes
-export const db = drizzle(client)
+export const db = drizzle(client, { schema })

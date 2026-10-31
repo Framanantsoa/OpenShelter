@@ -1,12 +1,39 @@
+/* app/assets/css/main.css */
 @import "tailwindcss";
-@plugin "daisyui";
+
+@plugin "daisyui" {
+  /* Restrict available themes to ONLY your custom openshelter theme */
+  themes: openshelter --default;
+}
+
 @plugin "daisyui/theme" {
   name: "openshelter";
   default: true;
   color-scheme: light;
-  --color-primary: oklch(58.8% 0.158 242);        /* sky-600 */
+  
+  /* Surfaces: page tint, cards, borders */
+  --color-base-100: oklch(100% 0 0);             /* cards, inputs */
+  --color-base-200: oklch(97.7% 0.013 236.6);    /* page background (sky-50) */
+  --color-base-300: oklch(92.9% 0.013 255.5);    /* borders (slate-200) */
+  --color-base-content: oklch(27.9% 0.041 260);  /* text (slate-800) */
+  
+  /* Brand */
+  --color-primary: oklch(58.8% 0.158 242);       /* sky-600 */
   --color-primary-content: oklch(100% 0 0);
-  --color-neutral: oklch(20.8% 0.042 265.8);      /* slate-900 */
+  --color-neutral: oklch(20.8% 0.042 265.8);     /* slate-900 */
   --color-neutral-content: oklch(98% 0 0);
-  --color-error: oklch(57.7% 0.245 27.3);         /* red-600 */
+  --color-error: oklch(57.7% 0.245 27.3);        /* red-600 */
+
+  /* Feedback colors (Required for status-success, badges, alerts, etc.) */
+  --color-success: oklch(64.8% 0.2 152);         /* Emerald / Success green */
+  --color-success-content: oklch(100% 0 0);
+  --color-info: oklch(70% 0.14 220);             /* Info blue */
+  --color-info-content: oklch(100% 0 0);
+}
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --color-brand-400: #38bdf8;
+  --color-brand-500: #00a3ff;
+  --color-brand-600: #0077ff;
 }

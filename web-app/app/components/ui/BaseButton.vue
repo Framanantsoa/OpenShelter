@@ -13,7 +13,7 @@ const variants = { primary: 'btn-primary', secondary: 'btn-outline', ghost: 'btn
 const sizes = { sm: 'btn-sm', md: '', lg: 'btn-lg' }
 
 const classes = computed(() => [
-  'btn rounded-full',
+  'btn rounded-lg py-2',
   variants[props.variant],
   sizes[props.size],
   props.block && 'btn-block',

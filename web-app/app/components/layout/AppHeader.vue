@@ -22,7 +22,10 @@ watch(() =>
       <AppNav :links="links" class="hidden md:flex" />
 
       <div class="hidden items-center gap-3 md:flex">
-        <BaseButton to="/#locator">Find Shelter Now</BaseButton>
+        <BaseButton to="/sign-in" block>
+          <Icon name="heroicons:arrow-right-end-on-rectangle" size="20" />
+          Sign In
+        </BaseButton>
       </div>
 
       <IconButton
