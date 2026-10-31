@@ -35,6 +35,18 @@ export const users = pgTable("users", {
     roleId: integer('role_id').references(() => roles.id).notNull(),
 });
 
+export const refreshTokens = pgTable("refresh_tokens", {
+    id: serial('token_id').primaryKey(),
+    userId: integer('user_id').references(() => users.id).notNull(),
+    tokenHash: varchar('token_hash', { length: 255 }).notNull().unique(),
+    isRevoked: boolean('is_revoked').default(false).notNull(),
+    
+    expiresAt: timestamp('expires_at', { withTimezone: true }).notNull(),
+    
+    createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
+    updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().notNull(),
+});
+
 export const items = pgTable("items", {
     id: serial('id').primaryKey(),
     name: varchar('name', { length: 50 }).notNull(),
@@ -191,12 +203,20 @@ export const usersRelations = relations(users, ({ one, many }) => ({
     country: one(countries, {
         fields: [users.countryId], references: [countries.id],
     }),
+    refreshTokens: many(refreshTokens),
     approvedShelters: many(shelters),
     checkIns: many(checkIns),
     volunteers: many(volunteers),
     donations: many(donations),
     emergencyAlerts: many(emergencyAlerts),
 }));
+
+export const refreshTokensRelations = relations(refreshTokens, ({ one }) => ({
+    user: one(users, {
+        fields: [refreshTokens.userId],
+        references: [users.id],
+    }),
+}))
 
 export const itemsRelations = relations(items, ({ many }) => ({
     shelterInventories: many(shelterInventories),
@@ -291,6 +311,9 @@ export type NewCountry = typeof countries.$inferInsert;
 
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
+
+export type RefreshToken = typeof refreshTokens.$inferSelect;
+export type NewRefreshToken = typeof refreshTokens.$inferInsert;
 
 export type Item = typeof items.$inferSelect;
 export type NewItem = typeof items.$inferInsert;

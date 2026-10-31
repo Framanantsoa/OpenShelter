@@ -4,6 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss() as any],
+    server: {
+      hmr: { overlay: false },
+    },
   },
 
   css: ['./app/assets/css/main.css'],
@@ -14,6 +17,6 @@ export default defineNuxtConfig({
     databaseUrl: process.env.DATABASE_URL
   },
 
-  modules: ['@nuxt/icon', '@nuxt/image'],
+  modules: ['@nuxt/icon', '@nuxt/image', '@pinia/nuxt'],
   image: { format: ['avif', 'webp'] },
 })
